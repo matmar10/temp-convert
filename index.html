@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <title>Weather Converter</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="vendor/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <link href="vendor/font-awesome/3.0.2/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="vendor/font-awesome/3.0.2/css/font-awesome-ie7.min.css">
+    <![endif]-->
+
+
+    <link rel="stylesheet" href="vendor/qunit/1.11.0/qunit.css">
+
+    <link href="src/css/app.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="row-fluid">
+            <div class="span12">
+                <h1>Weather Converter</h1>
+                <div class="well">
+                    <i class="icon-info-sign"></i> <strong>Instructions: </strong> Enter a source value to see the converted equivalent. Several source formats are accepted.
+                </div>
+            </div>
+        </header>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <h2>Temperature Conversion</h2>
+                <p>Convert between Fahrenheit and Celsius.</p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span5">
+                <h3>Source Temperature</h3>
+                <form id="temperature_convert_form">
+                    <fieldset>
+                        <div class="controls">
+                            <label for="source_temperature_input">Temperature</label>
+                            <input id="source_temperature_input" type="text" placeholder="Enter source temperature" />
+                            <span class="help-block">Ex: "32F", "-273.15 degrees Celsius"</span>
+                        </div>
+
+                        <button id="temperature_convert_form_clear_button" type="submit" class="btn btn-large">Clear</button>
+                        <button id="temperature_convert_form_submit_button" type="submit" class="btn btn-primary btn-large">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="temperature_convert_result" class="span7">
+                <h3>Result</h3>
+                <div class="alert alert-success alert-block text-center" style="display: none">
+                    <h3></h3>
+                </div>
+                <div class="alert alert-error alert-block text-center" style="display: none">
+                    <i class="icon-exclamation-sign"></i> <strong>Error: please enter a source temperature.</strong>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="span12">
+                <button class="btn btn-success"><i class="icon-plus"></i> Show Unit Test Results</button>
+                <button class="btn btn-warning" style="display: none"><i class="icon-minus"></i> Hide Unit Test Results</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="unit_test_results" class="container" style="display: none">
+        <div class="row">
+            <div class="span12">
+                <div id="qunit"></div>
+                <div id="qunit-fixture"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- vendor script includes -->
+    <script src="vendor/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="vendor/bootstrap/2.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="vendor/sprintf/0.7/sprintf.js" type="text/javascript"></script>
+
+    <!-- application -->
+    <script src="src/js/app.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#source_temperature_input').temperatureConverter();
+
+            // TODO: this show Unit Tests toggle part is just hacked in here
+            $('.btn-success').click(function() {
+                $('#unit_test_results').show();
+                $('.btn-success').hide();
+                $('.btn-warning').show();
+            });
+
+            $('.btn-warning').click(function() {
+                $('#unit_test_results').hide();
+                $('.btn-warning').hide();
+                $('.btn-success').show();
+            });
+        });
+    </script>
+
+    <script src="vendor/qunit/1.11.0/qunit.js" type="text/javascript"></script>
+    <script src="src/js/tests/temperature.js" type="text/javascript"></script>
+
+</body>
+</html>

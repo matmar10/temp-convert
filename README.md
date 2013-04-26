@@ -4,26 +4,41 @@ Sample Chat Window
 
 Overview
 --------
+Parses a temperature input string and displays the conversion result
 
 Features
 --------
+* All options are customizable in the initialization
+* Allows for custom output format
+* Uses specified decimal precision and integer math to avoid floating point funkiness
+* Demonstrates sample unit tests
 
 Installation
 ------------
 1. Open index.html in your target browser
-1. There is no step 2
+2. There is no step 2
 
 Testing Notes
 -------------
-This demo has *NOT* been tested on the following browsers using OSX version 10.6.8:
+This demo has been tested on the following browsers using OSX version 10.6.8:
 * Chrome 26.0.1410.65
 * Firefox 20.0
 * Safari 5.1.9
 
-*No unit tests have been added.*
+Basic unit test coverage has been added as a demonstration.
+
+Coverage is in no way reflective of an appropriate level of test coverage for a
+production oriented product.
 
 General Notes
 -------------
+The design takes into consideration the problem statement of
+> creating a class or set of methods/functions that provides a way to make future improvements
+as the generic classes could be used for other weather measurement conversions.
+
+Parsing has been greatly simplified and whichever unit is matched first "wins".
+
+A better parsing implementation would take locale into account using a locale library.
 
 
 Problem Statement
