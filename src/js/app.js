@@ -233,13 +233,14 @@
                     }
                 });
 
-                if(!~$.inArray("C", matchedUnits)) {
-                    unit = new $.sL.weather.Unit("F", o.decimalPrecision, o.roundUp);
+                if(-1 !== $.inArray("C", matchedUnits)) {
+                    unit = new $.sL.weather.Unit("C", o.decimalPrecision, o.roundUp);
                 } else {
-                    if(!~$.inArray("F", matchedUnits)) {
+                    if(-1 !== $.inArray("F", matchedUnits)) {
+                        unit = new $.sL.weather.Unit("F", o.decimalPrecision, o.roundUp);
+                    } else {
                         throw "ParseError: could not determine unit from input '" + input + "' (expected Fahrenheit or Celsius).";
                     }
-                    unit = new $.sL.weather.Unit("C", o.decimalPrecision, o.roundUp);
                 }
 
                 // could not parse
