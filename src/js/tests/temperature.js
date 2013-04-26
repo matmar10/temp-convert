@@ -90,11 +90,20 @@ test("$().temperatureConverter()", function() {
 
     $input.val('0 degrees C');
     $submit.click();
-    equal($output.text(), "32F = 0C");
+    equal($output.text(), "0C = 32F");
 
     $input.val('123 Fahrenheit');
     $submit.click();
     equal($output.text(), "123F = 50.55556C");
+
+
+    $input.val('123 C');
+    $submit.click();
+    equal($output.text(), "123C = 253.4F");
+
+    $input.val('100 degrees Celsius');
+    $submit.click();
+    equal($output.text(), "100C = 212F");
 
     $clear.click();
     equal($input.val(), '');
