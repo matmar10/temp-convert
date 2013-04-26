@@ -169,7 +169,7 @@
             clearButton: "#temperature_convert_form_clear_button",
             submitButton: "#temperature_convert_form_submit_button",
             outputContainer: "#temperature_convert_result .alert-success",
-            outputText: "#temperature_convert_result .alert-success h3",
+            outputText: "#temperature_convert_result .alert-success h3 .output",
             errorContainer: "#temperature_convert_result .alert-error",
             errorText: "#temperature_convert_result .alert-error strong"
         },

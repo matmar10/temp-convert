@@ -79,10 +79,10 @@ test("$.sL.weather.UnitPair", function() {
 
 test("$().temperatureConverter()", function() {
 
-    var $input = $('#source_temperature_input'),
-        $submit = $('#temperature_convert_form_submit_button'),
-        $clear = $('#temperature_convert_form_clear_button'),
-        $output = $('#temperature_convert_result .alert-success h3');
+    var $input = $($.sL.weather.temp.defaults.elements.input),
+        $submit = $($.sL.weather.temp.defaults.elements.submitButton),
+        $clear = $($.sL.weather.temp.defaults.elements.clearButton),
+        $output = $($.sL.weather.temp.defaults.elements.outputText);
 
     $input.val('32 degrees F');
     $submit.click();
